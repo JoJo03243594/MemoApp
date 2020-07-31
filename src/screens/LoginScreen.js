@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
 import firebase from 'firebase';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 
 class LoginScreen extends React.Component {
@@ -10,9 +11,16 @@ class LoginScreen extends React.Component {
   }
 
   handleSubmit() {
-    // this.props.navigation.navigate('Home')
-  };
-  
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then((result) => {
+        console.log('success!', result.user);
+        this.props.navigation.navigate('Home');
+      })
+      .catch((error) => {
+        console.log('error!', error);
+      });
+  }
+
 
   render() {
     return (
@@ -39,7 +47,7 @@ class LoginScreen extends React.Component {
         />
         <TouchableHighlight
           style={styles.button}
-          onPress={() => {this.handleSubmit.bind(this)}}
+          onPress={ this.handleSubmit.bind(this) }
           underlayColor="#C70F66">
            <Text style={styles.buttonTitle}>ログインする</Text>
         </TouchableHighlight>
