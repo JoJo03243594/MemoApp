@@ -6,15 +6,14 @@ import { NavigationActions, StackActions } from 'react-navigation';
 
 class LoginScreen extends React.Component {
   state = {
-    email: '',
-    password: '',
+    email: 'test3@example.com',
+    password: 'password',
   }
 
   handleSubmit() {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((result) => {
-        console.log('success!', result.user);
-        this.props.navigation.navigate('Home', { currentUser: result.user });
+        this.props.navigation.navigate('Home');
       })
       .catch((error) => {
         console.log('error!', error);

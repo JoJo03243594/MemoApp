@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableHighlight} from 'react-native';
 
 class MemoList extends React.Component {
   render() {
+    console.log(this.props.memoList);
     return (
         <View style={styles.memoList}>
           <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
@@ -18,7 +19,7 @@ class MemoList extends React.Component {
               <Text style={styles.memoDate}>2020/07/20</Text>
             </View>
           </TouchableHighlight>
-          
+
           <TouchableHighlight onPress={() => { this.props.navigation.navigate('MemoDetail'); }}>
             <View style={styles.memoListItem}>
               <Text style={styles.memoTitle}>講座のアイテム</Text>
