@@ -33,9 +33,6 @@ class MemoListScreen extends React.Component {
   }
 
   render() {
-
-    // if (currentUser == null) { return null; }
-
     return(
       <View style={styles.container}>
         <MemoList memoList={this.state.memoList} navigation={this.props.navigation} />
