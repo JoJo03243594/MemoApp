@@ -22,20 +22,6 @@ class MemoListScreen extends React.Component {
         });
         this.setState({ memoList: tempList });
       });
-
-      /*
-      .get()
-      .then((snapshot) => {
-        const tempList = [];
-        snapshot.forEach((doc) => {
-          tempList.push({ ...doc.data(), key: doc.id });
-        });
-        this.setState({ memoList: tempList });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      */
   }
 
   handlePress() {
